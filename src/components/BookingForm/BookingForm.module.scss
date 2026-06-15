@@ -1,0 +1,140 @@
+.form {
+  display: grid;
+  gap: 18px;
+}
+
+.header {
+  display: grid;
+  gap: 8px;
+  margin-bottom: 4px;
+
+  h2 {
+    margin: 0;
+    color: #17314b;
+    font-size: 30px;
+    line-height: 1.12;
+    letter-spacing: 0;
+  }
+
+  p {
+    margin: 0;
+    color: var(--muted);
+    line-height: 1.55;
+  }
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.field {
+  display: grid;
+  align-content: start;
+  gap: 8px;
+  min-height: 104px;
+  position: relative;
+
+  label {
+    color: #2b2723;
+    font-size: 13px;
+    font-weight: 850;
+  }
+
+  input,
+  select {
+    width: 100%;
+    min-height: 50px;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    background: #fffdfa;
+    color: var(--text);
+    padding: 0 14px;
+    font-size: 16px;
+    outline: none;
+    transition:
+      background 160ms ease,
+      border-color 160ms ease,
+      box-shadow 160ms ease;
+
+    &::placeholder {
+      color: #9b9389;
+    }
+
+    &:focus {
+      background: #fff;
+      border-color: var(--accent);
+      box-shadow: 0 0 0 4px rgba(200, 150, 62, 0.17);
+    }
+
+    &[aria-invalid="true"] {
+      border-color: var(--danger);
+      box-shadow: 0 0 0 4px rgba(194, 65, 59, 0.1);
+    }
+  }
+}
+
+.error {
+  min-height: 18px;
+  color: var(--danger);
+  font-size: 13px;
+  line-height: 1.35;
+}
+
+.submit {
+  min-height: 54px;
+  margin-top: 4px;
+  border: 0;
+  border-radius: 8px;
+  background: #17314b;
+  color: #fff;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 0 22px;
+  font-size: 16px;
+  font-weight: 850;
+  transition:
+    background 160ms ease,
+    transform 160ms ease,
+    box-shadow 160ms ease;
+
+  &:hover:not(:disabled) {
+    background: #0f263d;
+    box-shadow: 0 14px 28px rgba(23, 49, 75, 0.22);
+    transform: translateY(-1px);
+  }
+
+  &:disabled {
+    opacity: 0.78;
+  }
+}
+
+.spinner {
+  width: 16px;
+  height: 16px;
+  border: 2px solid rgba(255, 255, 255, 0.45);
+  border-top-color: #fff;
+  border-radius: 50%;
+  animation: spin 720ms linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .spinner {
+    animation: none;
+  }
+}
+
+@media (max-width: 520px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}
